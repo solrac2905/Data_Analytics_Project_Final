@@ -1,0 +1,28 @@
+# base/parameters.yml
+
+handle_missing_values:
+  threshold_missing: 0.95
+
+flag_variables_with_high_default_diff:
+  vars_to_check: ['MORTDUE', 'VALUE', 'YOJ', 'DEROG', 'DELINQ', 'CLAGE', 'NINQ', 'CLNO', 'DEBTINC']
+  threshold_diff: 0.10
+
+impute_missing_data:
+  cols_to_fill_median: ['MORTDUE', 'VALUE', 'YOJ', 'CLAGE', 'CLNO', 'DEBTINC']
+  cols_to_fill_zero: ['DEROG', 'DELINQ', 'NINQ']
+
+handle_outliers:
+  upper_only: ['DEROG', 'DELINQ', 'NINQ']
+  both_ends: ['CLNO', 'DEBTINC']
+  upper_only_quantile: 0.995
+  both_ends_lower_quantile: 0.005
+  both_ends_upper_quantile: 0.995
+  clage_col: 'CLAGE'
+  clage_upper_quantile: 0.99975
+
+apply_one_hot_encoding:
+  categorical_columns: ['REASON', 'JOB']
+
+scale_numeric_features:
+  target_column: 'BAD'
+
